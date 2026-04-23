@@ -15,6 +15,8 @@ void cDiem::nhap() {
 void cDiem::xuat() const {
     cout << "(" << x << ", " << y << ")";
 }
+double cDiem::getX() const { return x; }
+double cDiem::getY() const { return y; }
 
 double cDiem::tinhKhoangCach(const cDiem& d) const {
     return sqrt(pow(x - d.x, 2) + pow(y - d.y, 2));
@@ -24,16 +26,12 @@ void cDiem::tinhTien(double dx, double dy) {
     x += dx;
     y += dy;
 }
-
-// Quay điểm quanh gốc tọa độ (0,0)
 void cDiem::quay(double gocRadian) {
     double x_new = x * cos(gocRadian) - y * sin(gocRadian);
     double y_new = x * sin(gocRadian) + y * cos(gocRadian);
     x = x_new;
     y = y_new;
 }
-
-// Phóng to thu nhỏ tỉ lệ k so với gốc tọa độ
 void cDiem::phongToThuNho(double k) {
     x *= k;
     y *= k;
